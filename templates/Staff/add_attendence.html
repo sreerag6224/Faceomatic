@@ -1,0 +1,162 @@
+{% extends 'Staff/Staff_Home.html' %}
+{% block body %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+
+    <script type="text/javascript">
+var xmlHttp;
+            function adds(e){
+{#               alert(e);#}
+                if (typeof XMLHttpRequest != "undefined"){
+                xmlHttp= new XMLHttpRequest();
+                }
+                else if (window.ActiveXObject){
+                    xmlHttp= new ActiveXObject("Microsoft.XMLHTTP");
+                }
+                if (xmlHttp==null){
+                    alert("Browser does not support XMLHTTP Request")
+                    return;
+                }
+                var url="/add_attendence1/"+e;
+                xmlHttp.onreadystatechange = stateChange;
+                xmlHttp.open("GET", url, true);
+                xmlHttp.send(null);
+            }
+
+            function stateChange(){
+                if(xmlHttp.readyState==4 || xmlHttp.readyState=="complete"){
+                    document.getElementById("select3").innerHTML=xmlHttp.responseText
+
+                }
+            }
+
+             function adds1(e){
+{#               alert(e);#}
+                if (typeof XMLHttpRequest != "undefined"){
+                xmlHttp= new XMLHttpRequest();
+                }
+                else if (window.ActiveXObject){
+                    xmlHttp= new ActiveXObject("Microsoft.XMLHTTP");
+                }
+                if (xmlHttp==null){
+                    alert("Browser does not support XMLHTTP Request")
+                    return;
+                }
+                var url="/add_attendence2/"+e;
+                xmlHttp.onreadystatechange = stateChange1;
+                xmlHttp.open("GET", url, true);
+                xmlHttp.send(null);
+            }
+
+            function stateChange1(){
+                if(xmlHttp.readyState==4 || xmlHttp.readyState=="complete"){
+                    document.getElementById("select2").innerHTML=xmlHttp.responseText
+
+                }
+            }
+
+               function adds2(e){
+{#               alert(e);#}
+                if (typeof XMLHttpRequest != "undefined"){
+                xmlHttp= new XMLHttpRequest();
+                }
+                else if (window.ActiveXObject){
+                    xmlHttp= new ActiveXObject("Microsoft.XMLHTTP");
+                }
+                if (xmlHttp==null){
+                    alert("Browser does not support XMLHTTP Request")
+                    return;
+                }
+                var url="/add_attendence3/"+e;
+                xmlHttp.onreadystatechange = stateChange2;
+                xmlHttp.open("GET", url, true);
+                xmlHttp.send(null);
+            }
+
+            function stateChange2(){
+                if(xmlHttp.readyState==4 || xmlHttp.readyState=="complete"){
+                    document.getElementById("select4").innerHTML=xmlHttp.responseText
+
+                }
+            }
+
+                 function adds3(e){
+{#               alert(e);#}
+                if (typeof XMLHttpRequest != "undefined"){
+                xmlHttp= new XMLHttpRequest();
+                }
+                else if (window.ActiveXObject){
+                    xmlHttp= new ActiveXObject("Microsoft.XMLHTTP");
+                }
+                if (xmlHttp==null){
+                    alert("Browser does not support XMLHTTP Request")
+                    return;
+                }
+                var url="/add_attendence4/"+e;
+                xmlHttp.onreadystatechange = stateChange3;
+                xmlHttp.open("GET", url, true);
+                xmlHttp.send(null);
+            }
+
+            function stateChange3(){
+                if(xmlHttp.readyState==4 || xmlHttp.readyState=="complete"){
+                    document.getElementById("n1").innerHTML=xmlHttp.responseText
+
+                }
+            }
+
+</script>
+
+</head>
+
+<body>
+<form id="form1" name="form1" method="post" action="/attendence_post">
+  <table class="table table-striped" style="width: 100ch">
+    <tr>
+      <td >course</td>
+      <td ><label for="select"></label>
+
+          <select name="select" id="select" onchange="adds(this.value)" class="form-control" style="width: 40%">
+              <option selected>---select---</option>
+              {% for foo in value %}
+                   <option value="{{ foo['course_id'] }}">{{ foo['course_name'] }}</option>
+              {% endfor %}
+
+          </select>
+     </td>
+    </tr>
+   
+    <tr>
+      <td>subject</td>
+      <td><label for="select3"></label>
+
+          <select name="select3" id="select3" onchange="adds1(this.value)"class="form-control" style="width: 40%">
+          </select>
+      </td>
+    </tr>
+     <tr>
+      <td>semester</td>
+      <td><label for="select2"></label>
+
+          <select name="select2" id="select2" onchange="adds2(this.value)"class="form-control" style="width: 40%">
+          </select>
+      </td>
+     </tr>
+  <tr>
+         <td>year</td>
+      <td><label for="select4"></label>
+
+          <select name="select2" id="select4" onchange="adds3(this.value)"class="form-control" style="width: 40%">
+          </select>
+      </td>
+    </tr>
+  <table class="table table-striped" style="width: 100ch" id="n1"></table>
+
+  </table>
+</form>
+</body>
+</html>
+{% endblock %}

@@ -1,0 +1,28 @@
+import java.applet.Applet;
+import java.awt.*;
+public class apl10 extends Applet
+{
+    Panel np=new Panel();
+    Panel cp=new Panel();
+    Panel sp=new Panel();
+    Button nbutton=new Button("This Button is in the North Section");    
+    Button cbutton=new Button("This Button is in the Center Section");
+    Button sbutton=new Button("This Button is in the South Section");
+    public void init()
+    {
+        setLayout(new BorderLayout());
+        add("North",np);
+        np.setBackground(Color.blue);
+        add("Center",cp);
+        cp.setBackground(Color.black);
+        add("South",sp);
+        sp.setBackground(Color.red);
+        np.add(nbutton);
+        sp.add(sbutton);
+        cp.add(cbutton);
+    }
+}
+/*
+<applet code="apl10.class" height=300 width=500>
+</applet>
+*/

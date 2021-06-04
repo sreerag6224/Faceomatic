@@ -1,0 +1,24 @@
+{% extends 'Admin/Admin_Home.html'%}
+{% block body %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" class="">
+var x=confirm("Hod already exits...Do you want to update exiting hod?");
+if (x){
+                window.location.href="/hod_overwrite/{{ value }}/{{ value2 }}"
+
+}
+else
+{
+    window.location.href="/select_hod"
+}
+    </script>
+</head>
+<body>
+
+</body>
+</html>
+{% endblock %}

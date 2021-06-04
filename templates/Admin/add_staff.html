@@ -1,0 +1,88 @@
+{% extends 'Admin/Admin_Home.html' %}
+{% block body %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+<form action="/staff_post" method="post" enctype="multipart/form-data" name="form1" id="form1" >
+    <div align="center" style="width: 100ch"><b>STAFF DETAILS</b></div>
+  <br>
+  <div align="center">
+    <table class="table table-striped  " style="width: 100ch">
+      <tr >
+        <td width="30%">DEPARTMENT</td>
+        <td align="left"><label for="select"></label>
+          <select name="select" id="select" class="form-control"  >
+          <option selected>---select---</option>
+              {% for foo in value %}
+                  <option value="{{ foo['dept_id'] }}" >{{ foo['dept_name'] }}</option>
+
+              {% endfor %}
+
+        </select></td>
+      </tr>
+      <tr >
+        <td>NAME</td>
+        <td align="left"><label for="textfield"></label>
+        <input type="text" name="textfield" class="form-control" id="textfield" required  /></td>
+      </tr>
+      <tr>
+        <td>AGE</td>
+        <td><label for="textfield2"></label>
+        <input type="text" name="textfield2" class="form-control" id="textfield2"  required/></td>
+      </tr>
+      <tr>
+        <td>HOUSE NAME</td>
+        <td><label for="textfield3"></label>
+        <input type="text" name="textfield3" class="form-control" id="textfield3" required/></td>
+      </tr>
+      <tr>
+        <td>PLACE</td>
+        <td><label for="textfield4"></label>
+        <input type="text" name="textfield4" class="form-control" id="textfield4" required /></td>
+      </tr>
+      <tr>
+        <td>POST</td>
+        <td><label for="textfield5"></label>
+        <input type="text" name="textfield5" class="form-control" id="textfield5" required/></td>
+      </tr>
+      <tr>
+        <td>ZIP</td>
+        <td><label for="textfield6"></label>
+        <input type="text" name="textfield6" class="form-control" id="textfield6" required/></td>
+      </tr>
+      <tr>
+        <td>EMAIL</td>
+        <td><label for="textfield7"></label>
+        <input type="email" name="textfield7" class="form-control" id="textfield7" required/></td>
+      </tr>
+      <tr>
+        <td>PHONE</td>
+        <td><label for="textfield8"></label>
+        <input type="text" name="textfield8" class="form-control" id="textfield8" required /></td>
+      </tr>
+      <tr>
+        <td>QUALIFIACTION</td>
+        <td><label for="textfield9"></label>
+        <input type="text" name="textfield9" class="form-control" id="textfield9" required/></td>
+      </tr>
+      <tr>
+        <td>IMAGE</td>
+        <td><label for="fileField"></label>
+        <input type="file" name="fileField" id="fileField" required class="form-control" /></td>
+      </tr>
+      <tr>
+        <td colspan="2"><div align="center">
+          <input type="submit" name="button" id="button" value="ADD" class="btn btn-outline-primary" />
+        </div></td>
+      </tr>
+    </table>
+  </div>
+</form>
+</body>
+</html>
+{% endblock %}

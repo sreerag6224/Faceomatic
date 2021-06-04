@@ -1,0 +1,55 @@
+{% extends 'Staff/Staff_Home.html' %}
+{% block body %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+
+<body >
+<form id="form1" name="form1" method="post" action="" >
+
+  <table class="table table-striped" style="width: 100ch">
+    <tr>
+      <td>NAME</td>
+        <td><img class="rounded-circle " src="{{ value['s_images'] }}" height="150"width="150" alt=""/></span><br>{{ value['s_name'] }}<br><span class="user-icon"> </td>
+    </tr>
+    <tr>
+      <td>AGE</td>
+      <td>&nbsp;{{ value['s_age'] }}</td>
+    </tr>
+    <tr>
+      <td>HOUSE NAME</td>
+      <td>&nbsp;{{ value['s_hname'] }}</td>
+    </tr>
+    <tr>
+      <td>PLACE </td>
+      <td>&nbsp;{{ value['s_place'] }}</td>
+    </tr>
+    <tr>
+      <td>POST</td>
+      <td>&nbsp;{{ value['s_post'] }}</td>
+    </tr>
+    <tr>
+      <td>ZIP</td>
+      <td>&nbsp;{{ value['s_pin'] }}</td>
+    </tr>
+    <tr>
+      <td>EMAIL</td>
+      <td>&nbsp;{{ value['s_email'] }}</td>
+    </tr>
+    <tr>
+      <td>PHONE</td>
+      <td>&nbsp;{{ value['s_phone'] }}</td>
+    </tr>
+    <tr>
+      <td>QUALIFICATION</td>
+      <td>&nbsp;{{ value['qualification'] }}</td>
+    </tr>
+  </table>
+
+</form>
+</body>
+</html>
+{% endblock %}

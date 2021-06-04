@@ -1,0 +1,36 @@
+{% extends 'Staff/Staff_Home.html' %}
+{% block body %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+<form id="form1" name="form1" method="post" action="">
+  <table class="table table-striped" style="width: 100ch">
+    <tr>
+      <th scope="col"></th>
+      <th scope="col">Course</th>
+      <th scope="col">Note</th>
+      <th scope="col">Date</th>
+      <th scope="col">&nbsp;</th>
+    </tr>
+      {% for foo in value %}
+          <tr>
+      <td>&nbsp;{{ loop.index }}</td>
+      <td>&nbsp;{{ foo['cname'] }}</td>
+      <td><a href=" {{ foo['n'] }}" target="_blank">view</a></td>
+      <td>&nbsp;{{ foo['ndate'] }}</td>
+      <td>{# <p><a href="#">edit</a></p>#}
+      <p><a href="/delete_note/{{ foo['nid'] }}">delete</a></p></td>
+    </tr>
+      {% endfor %}
+
+
+  </table>
+</form>
+</body>
+</html>
+{% endblock %}

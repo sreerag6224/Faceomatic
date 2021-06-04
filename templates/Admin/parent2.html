@@ -1,0 +1,22 @@
+{% extends 'Admin/Admin_Home.html' %}
+{% block body %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    var id={{ value }};
+    var x=confirm("A Parent with the above details exist...do you want to assign the student to this user?");
+
+        if(x)
+        {
+            window.location.href="/add_parent1/{{ val }}/{{ value }}"
+        }
+</script>
+
+</body>
+</html>
+{% endblock %}

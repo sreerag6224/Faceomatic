@@ -1,0 +1,31 @@
+{% extends 'Admin/Admin_Home.html' %}
+{% block body %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+<table class="table table-striped  " style="width: 100ch">
+  <tr>
+    <th scope="col"> </th>
+    <th scope="col">Department</th>
+    <th scope="col">course</th>
+    <th scope="col">&nbsp;</th>
+  </tr>
+    {% for foo in value %}
+    <tr>
+    <td>&nbsp;{{ loop.index }}</td>
+    <td>{{ foo['dept_name'] }}&nbsp;</td>
+    <td>{{ foo['course_name'] }}&nbsp;</td>
+    <td><a href="/delete_course/{{ foo['course_id'] }}"onclick="return confirm('are u sure to delete.......')">delete</a></td>
+  </tr>
+    {% endfor %}
+
+
+</table>
+</body>
+</html>
+{% endblock %}

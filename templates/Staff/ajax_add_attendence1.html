@@ -1,0 +1,4 @@
+<option>---select---</option>
+{% for foo in value %}
+<option value="{{ foo['subject_id'] }}">{{ foo['subject_name'] }}</option>
+{% endfor %}

@@ -1,0 +1,48 @@
+{% extends 'Admin/Admin_Home.html' %}
+{% block body %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+<form id="form1" name="form1" method="post" action="/sub_post" enctype="multipart/form-data">
+  <table class="table table-striped  " style="width: 100ch">
+    <tr align="center">
+      <th  width="30%" scope="col">Course</th>
+      <th  scope="col"><label for="select"></label>
+        <select name="select" id="select" class="form-control">
+        <option class="" selected>---select---</option>
+            {% for foo in value %}
+            <option value="{{ foo['course_id'] }}">{{ foo['course_name'] }}</option>
+            {% endfor %}
+
+      </select></th>
+    </tr>
+    <tr align="center">
+      <th>Subject name</th>
+      <td align="left"><label for="textfield2"></label>
+      <input type="text"  class="form-control" name="textfield2" id="textfield2" required /></td>
+    </tr>
+    <tr align="center">
+      <th>Details</th>
+      <td align="left"><label for="fileField"></label>
+      <input type="file" class="form-control" name="fileField" id="fileField" required /></td>
+    </tr>
+    <tr align="center">
+      <th>text book</th>
+      <td align="left"><label for="textfield3"></label>
+      <input type="text" class="form-control" name="textfield3" id="textfield3" required /></td>
+    </tr>
+    <tr>
+      <td colspan="2">  <div align="center">
+        <input type="submit" name="button" id="button" value="Add" class="btn btn-primary" />
+      </div></td>
+    </tr>
+  </table>
+</form>
+</body>
+</html>
+{% endblock %}

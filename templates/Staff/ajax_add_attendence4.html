@@ -1,0 +1,11 @@
+{% for foo in value %}
+    <tr align="left">
+{#    <td>{{ foo['student_id'] }}{{ foo['student_name'] }}</td>#}
+<td >{{ foo['student_id'] }}  {{ foo['student_name'] }}
+    <input type="hidden" name="name" value="{{ foo['student_id'] }}" style="width: 40%"></td>
+        <td  align="left"><input type="checkbox" name="att"  value="{{ foo['student_id'] }}" class="" style="width: 40%">present</td>
+    </tr>
+{% endfor %}
+<tr align="center">
+      <th colspan="2" scope="row"><input type="submit" name="button" id="button" value="mark attendence" class="btn btn-primary" /></th>
+    </tr>

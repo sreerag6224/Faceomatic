@@ -1,0 +1,39 @@
+{% extends 'Admin/Admin_Home.html' %}
+{% block body %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+<form id="form1" name="form1" method="post" action="">
+{% if value %}
+
+    <table class="table table-striped  " style="width: 100ch">
+      <tr>
+        <th scope="col"> </th>
+        <th scope="col">Student name</th>
+        <th scope="col">Date</th>
+        <th scope="col">Late by</th>
+      </tr>
+        {% for foo in value %}
+
+      <tr>
+        <td>{{ loop.index }}</td>
+        <td>{{ foo['nam'] }}</td>
+        <td>{{ foo['e_date'] }}</td>
+        <td>{{ foo['s'] }}</td>
+      </tr>
+        {% endfor %}
+
+    </table>
+
+{% else %}
+<p style="color: red;width: 100%;align-content: center">No Data</p>
+{% endif %}
+</form>
+</body>
+</html>
+{% endblock %}

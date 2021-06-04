@@ -1,0 +1,109 @@
+{% extends 'Hod/Hod_home.html' %}
+{% block body %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+    <script type="text/javascript">
+var xmlHttp;
+            function adds(e){
+
+                if (typeof XMLHttpRequest != "undefined"){
+                xmlHttp= new XMLHttpRequest();
+                }
+                else if (window.ActiveXObject){
+                    xmlHttp= new ActiveXObject("Microsoft.XMLHTTP");
+                }
+                if (xmlHttp==null){
+                    alert("Browser does not support XMLHTTP Request")
+                    return;
+                }
+                var url="/subjectallocation_staff1/"+e;
+{#                alert(url);#}
+
+                xmlHttp.onreadystatechange = stateChange;
+                xmlHttp.open("GET", url, true);
+                xmlHttp.send(null);
+            }
+
+            function stateChange(){
+                if(xmlHttp.readyState==4 || xmlHttp.readyState=="complete"){
+                    document.getElementById("select3").innerHTML=xmlHttp.responseText
+
+                }
+            }
+
+
+              function adds1(e){
+
+                if (typeof XMLHttpRequest != "undefined"){
+                xmlHttp= new XMLHttpRequest();
+                }
+                else if (window.ActiveXObject){
+                    xmlHttp= new ActiveXObject("Microsoft.XMLHTTP");
+                }
+                if (xmlHttp==null){
+                    alert("Browser does not support XMLHTTP Request")
+                    return;
+                }
+                var url="/subjectallocation_staff2/"+e;
+{#                alert(url);#}
+
+                xmlHttp.onreadystatechange = stateChange1;
+                xmlHttp.open("GET", url, true);
+                xmlHttp.send(null);
+            }
+
+            function stateChange1(){
+                if(xmlHttp.readyState==4 || xmlHttp.readyState=="complete"){
+                    document.getElementById("select4").innerHTML=xmlHttp.responseText
+
+                }
+            }
+     </script>
+</head>
+
+<body>
+<form id="form1" name="form1" method="post" action="/suballoc_staff_post">
+  <table class="table table-striped" style="width: 100ch">
+{#    <tr>#}
+{#      <td>DEPARTMENT</td>#}
+{#      <td><label for="select"></label>#}
+{#        <select name="select" id="select">#}
+{#           #}
+{#      </select></td>#}
+{#    </tr>#}
+    <tr>
+      <td>COURSE</td>
+      <td><label for="select2"></label>
+        <select name="select2" id="select2" onchange="adds(this.value)" class="form-control" style="width: 40%">
+             <option selected>---select---</option>
+            {% for foo in value1 %}
+            <option value="{{ foo['course_id'] }}">{{ foo['course_name'] }}</option>
+            {% endfor %}
+
+      </select></td>
+    </tr>
+    <tr>
+      <td>STAFF</td>
+      <td><label for="select3"></label>
+        <select name="select3" id="select3" onchange="adds1(this.value)" class="form-control"  style="width: 40%">
+      </select></td>
+    </tr>
+    <tr>
+      <td>SUBJECT</td>
+      <td><label for="select4"></label>
+        <select name="select4" id="select4" class="form-control"  style="width: 40%">
+      </select></td>
+    </tr>
+    <tr>
+      <td colspan="2"><div align="center">
+        <input type="submit" name="button" id="button" value="ADD" class="btn btn-primary"/>
+      </div></td>
+    </tr>
+  </table>
+</form>
+</body>
+</html>
+{% endblock %}

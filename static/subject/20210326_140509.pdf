@@ -1,0 +1,20 @@
+import java.awt.*;
+import java.applet.Applet;
+public class apl1 extends Applet
+{
+    Button norm=new Button("run of the Mill");
+    Button lab=new Button();
+    Button colo=new Button("This Button is RED");
+    public void init()
+    {
+        add(norm);
+        add(lab);
+        add(colo);
+        lab.setLabel("setLabel() Method");
+        colo.setBackground(Color.red);
+    }
+}
+/*
+<applet code="apl1.class" height=300 width=500>
+</applet>
+*/

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table class="table table-striped table-responsive" style="width: 100ch">
+     <tr>
+      <td width="10"> </td>
+      <td width="45">NAME</td>
+      <td width="41">DOB</td>
+      <td width="102">MOTHER'S NAME</td>
+      <td width="92">FATHER'S NAME</td>
+      <td width="64">HOUSE</td>
+      <td width="61">PLACE</td>
+      <td width="48">POST</td>
+      <td width="31">PIN</td>
+      <td width="87">DISTRICT</td>
+      <td width="60">EMAIL</td>
+      <td width="65">PHONE</td>
+      <td width="100">SEMESTER</td>
+      <td width="69">YEAR</td>
+    </tr>
+      {% for foo in value %}
+           <tr>
+      <td>{{ loop.index}}</td>
+               <td>{{ foo['student_name'] }}<br> <image src="{{ foo['student_photo'] }}"  width="50px" height="50px"></image></td>
+      <td>{{ foo['student_dob'] }}&nbsp;</td>
+      <td>&nbsp;{{ foo['student_mname'] }}</td>
+      <td>&nbsp;{{ foo['student_fname'] }}</td>
+      <td>&nbsp;{{ foo['student_hname'] }}</td>
+      <td>&nbsp;{{ foo['student_place'] }}</td>
+      <td>&nbsp;{{ foo['student_post'] }}</td>
+      <td>&nbsp;{{ foo['student_pin']}}</td>
+      <td>&nbsp;{{ foo['student_district'] }}</td>
+      <td>&nbsp;{{ foo['student_email'] }}</td>
+      <td> {{ foo['student_phone_number'] }}</td>
+      <td>&nbsp;{{ foo['student_semester'] }}</td>
+      <td>&nbsp;{{ foo['year'] }}</td>
+      </tr>
+      {% endfor %}
+
+</table>
+</body>
+</html>

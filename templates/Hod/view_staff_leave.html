@@ -1,0 +1,33 @@
+{% extends 'Hod/Hod_home.html' %}
+{% block body %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+<form id="form1" name="form1" method="post" action="">
+  <table class="table table-striped" style="width: 100ch">
+    <tr>
+      <th width="10" scope="col"> </th>
+      <th width="98" scope="col">Staff Name</th>
+      <th width="80" scope="col">Date</th>
+      <th width="76" scope="col">No.of.Days</th>
+    </tr>
+      {% for foo in value %}
+          <tr>
+         <td>{{ loop.index }}</td>
+         <td>{{ foo['s_name'] }}</td>
+        <td>{{ foo['l_date'] }}</td>
+         <td>{{ foo['l_no_of_days'] }}</td>
+       </tr>
+      {% endfor %}
+
+
+  </table>
+</form>
+</body>
+</html>
+{% endblock %}

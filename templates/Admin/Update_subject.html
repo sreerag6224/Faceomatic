@@ -1,0 +1,52 @@
+{% extends 'Admin/Admin_Home.html' %}
+{% block body %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+<form id="form1" name="form1" enctype="multipart/form-data" method="post" action="/update_subject_post/{{ value['subject_id'] }}">
+  <table class="table table-striped  " style="width: 100ch">
+    <tr align="center">
+      <td>Course</td>
+      <td align="left"><label for="select"></label>
+        <select name="select" id="select" class="form-control">
+            {% for foo in value1 %}
+            <option value="{{ foo['course_id'] }}" {% if foo['course_id']==value['course_id'] %}
+                selected
+            {% endif %}>{{ foo['course_name'] }}</option>
+            {% endfor %}
+
+      </select></td>
+    </tr>
+    <tr align="center">
+      <td  >Subject name</td>
+      <td align="left"><label for="textfield" ></label>
+        <input type="text" name="textfield" id="textfield"  class="form-control" value="{{ value['subject_name'] }}" required/></td>
+    </tr>
+    <tr align="center">
+{#      <td>Details</td>#}
+{#      <td><label for="textfield2"></label>#}
+{#        <input type="text" name="textfi" id="textfield2" value="{{ value['subject_details_mod'] }}" /></td>#}
+ <td>Details</td>
+      <td align="left"><label for="fileField"></label>
+      <input type="file" name="fileField" id="fileField" class="form-control" required /></td>
+    </tr>
+    <tr align="center">
+      <td>Text book</td>
+      <td align="left"><label for="textfield3"></label>
+        <input type="text" name="textfield3" id="textfield3" class="form-control" value="{{ value['subject_text'] }}" required/></td>
+    </tr>
+    <tr>
+      <td colspan="2"><div align="center">
+        <input type="submit" name="button" id="button" value="Update" />
+      </div></td>
+    </tr>
+  </table>
+</form>
+</body>
+</html>
+{% endblock %}

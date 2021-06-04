@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table style="width: 100ch" class="table-striped" >
+    <tr>
+    <th width="8" scope="col"> </th>
+    <th width="28" scope="col">Name</th>
+    <th width="44" scope="col">details</th>
+    <th width="30" scope="col">text name</th>
+    <th width="22" scope="col">&nbsp;</th>
+
+  </tr>
+    {% for foo in value1 %}
+         <tr>
+    <th scope="row">{{ loop.index }}</th>
+    <td>{{ foo['subject_name'] }}</td>
+             <td><a href="{{ foo['subject_details_mod'] }}">view</a></td>
+    <td>&nbsp;{{ foo['subject_text'] }}</td>
+    <td><a href="/update_subject/{{ foo['subject_id'] }}">edit</a><br>
+    <a href="/delete_subject/{{ foo['subject_id'] }}">delete</a></td>
+  </tr>
+    {% endfor %}
+
+
+</table>
+</body>
+</html>

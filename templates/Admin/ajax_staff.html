@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table class="table table-striped table-responsive " style="width: 100ch"> <tr align="center">
+      <th  > </th>
+      <th>NAME</th>
+      <th >AGE</th>
+      <th >HOUSE</th>
+      <th>PLACE</th>
+      <th >POST</th>
+      <th >ZIP</th>
+      <th >EMAIL</th>
+      <th >PHONE</th>
+      <th >QUALIFICATION</th>
+      <th >&nbsp;</th>
+    </tr>
+
+      {% for foo in value1 %}
+          <tr align="center">
+                 <td height="49">{{ loop.index }}</td>
+                 <td align="center"><img src="{{ foo['s_images'] }}" height="50" width="50"><br>{{ foo['s_name'] }}</td>
+                 <td>{{ foo['s_age'] }}</td>
+                 <td>{{ foo['s_hname'] }}</td>
+                 <td>{{ foo['s_place'] }}&nbsp;</td>
+                 <td>{{ foo['s_post'] }}</td>
+                 <td>{{ foo['s_pin'] }}&nbsp;</td>
+                 <td>{{ foo['s_email'] }}&nbsp;</td>
+                 <td>{{ foo['s_phone'] }}&nbsp;</td>
+                 <td>{{ foo['qualification'] }}</td>
+                 <td><p align="center"><a href="/update_staff/{{ foo['staff_id'] }}">EDIT</a></p>
+                 <p align="center"><a href="/delete_staff/{{ foo['staff_id'] }}" onclick="return confirm('are u sure to delete.......')">DELETE</a></p></td>
+           </tr>
+      {% endfor %}</table>
+</body>
+</html>

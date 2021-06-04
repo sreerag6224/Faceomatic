@@ -1,0 +1,111 @@
+{% extends 'Admin/Admin_Home.html' %}
+{% block body %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+<form action="/update_student_post/{{ value2['student_id'] }}" method="post" enctype="multipart/form-data" name="form1" id="form1">
+  <table class="table table-striped  " style="width: 100ch">
+    <tr>
+      <td >student name</td>
+      <td ><label for="textfield" ></label>
+      <input type="text" name="textfield" id="" class="form-control" style="width: 70%" value="{{ value2['student_name'] }}" /><img src="{{ value2['student_photo'] }}" width="50" height="50" align="right"> </td>
+    </tr>
+    <tr>
+      <td>course</td>
+      <td><label for="select"></label>
+        <select name="select" id="select" class="form-control custom-select2" style="width: 40%">
+            {% for foo in value1 %}
+            <option value="{{ foo['course_id'] }}"
+            {% if value2['s_course_id']== foo['course_id'] %}
+            selected
+            {% endif %}>{{ foo['course_name'] }}</option>
+            {% endfor %}
+
+      </select></td>
+    </tr>
+    <tr>
+      <td>date of birth</td>
+      <td><label for="textfield2"></label>
+      <input type="date" name="textfield2" id="textfield2" class="form-control " style="width: 40%" required value="{{ value2['student_dob'] }}"/></td>
+    </tr>
+    <tr>
+      <td>Mothers name</td>
+      <td><label for="textfield3"></label>
+      <input type="text" name="textfield3" id="textfield3" class="form-control " style="width: 40%" required value="{{ value2['student_mname'] }}"/></td>
+    </tr>
+    <tr>
+      <td>Fathers name</td>
+      <td><label for="textfield4"></label>
+      <input type="text" name="textfield4" id="textfield4" class="form-control " style="width: 40%" required  value="{{ value2['student_fname'] }}" /></td>
+    </tr>
+    <tr>
+      <td>House name</td>
+      <td><label for="textfield5"></label>
+      <input type="text" name="textfield5" id="textfield5" class="form-control " style="width: 40%" required  value="{{ value2['student_hname'] }}"/></td>
+    </tr>
+    <tr>
+      <td>Place</td>
+      <td><label for="textfield6"></label>
+      <input type="text" name="textfield6" id="textfield6"  class="form-control " style="width: 40%" required value="{{ value2['student_place'] }}"/></td>
+    </tr>
+    <tr>
+      <td>Post</td>
+      <td><label for="textfield7"></label>
+      <input type="text" name="textfield7" id="textfield7"  class="form-control " style="width: 40%" required value="{{ value2['student_post'] }}"/></td>
+    </tr>
+    <tr>
+      <td>Zip</td>
+      <td><label for="textfield8"></label>
+      <input type="text" name="textfield8" id="textfield8"  class="form-control " style="width: 40%" required value="{{ value2['student_pin'] }}"/></td>
+    </tr>
+    <tr>
+      <td>District</td>
+      <td><label for="textfield9"></label>
+      <input type="text" name="textfield9" id="textfield9"  class="form-control " style="width: 40%" required value="{{ value2['student_district'] }}"/></td>
+    </tr>
+    <tr>
+      <td>Email</td>
+      <td><label for="textfield10"></label>
+      <input type="text" name="textfield10" id="textfield10"  class="form-control " style="width: 40%" required readonly value="{{ value2['student_email'] }}"/></td>
+    </tr>
+    <tr>
+      <td>Phone number</td>
+      <td><label for="textfield11"></label>
+      <input type="text" name="textfield11" id="textfield11"  class="form-control " style="width: 40%" required value="{{ value2['student_phone_number'] }}"/></td>
+    </tr>
+    <tr>
+      <td>Photo</td>
+      <td><label for="textfield12"></label>
+        <label for="fileField"></label>
+      <input type="file" name="fileField"  class="form-control " style="width: 40%"  id="fileField" /></td>
+    </tr>
+    <tr>
+      <td>Semester</td>
+      <td><label for="textfield12"></label>
+        <label for="select2"></label>
+        <select name="select2" id="select2" class="form-control custom-select" style="width: 40%">
+            {%for i in range(1,7) %}
+                <option value="{{ i }}" {% if i|string == s %}selected{% endif %}>{{ i}}</option>
+            {% endfor %}
+      </select></td>
+    </tr>
+    <tr>
+      <td>Year</td>
+      <td><label for="textfield13"></label>
+      <input type="text" name="textfield13"  class="form-control " style="width: 40%" required id="textfield13" value="{{ value2['year'] }}"/></td>
+    </tr>
+    <tr>
+      <td colspan="2"><div align="center">
+        <input type="submit" name="button" id="button" value="Update" class="btn btn-primary" />
+      </div></td>
+    </tr>
+  </table>
+</form>
+</body>
+</html>
+{% endblock %}

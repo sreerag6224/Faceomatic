@@ -1,0 +1,18 @@
+import java.awt.*;
+import java.applet.Applet;
+public class apl4 extends Applet
+{
+   Choice main=new Choice();
+    public void init()
+    {
+        add(main);
+        main.add("Hello");
+        main.add("Goodbye");
+        main.add("Ciao");
+        main.add("Java");
+    }
+}
+/*
+<applet code="apl4.class" height=300 width=500>
+</applet>
+*/

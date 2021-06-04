@@ -1,0 +1,58 @@
+{% extends 'Admin/Admin_Home.html' %}
+{% block body %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+      <script type="text/javascript">
+var xmlHttp;
+            function adds(e){
+                if (typeof XMLHttpRequest != "undefined"){
+                xmlHttp= new XMLHttpRequest();
+                }
+                else if (window.ActiveXObject){
+                    xmlHttp= new ActiveXObject("Microsoft.XMLHTTP");
+                }
+                if (xmlHttp==null){
+                    alert("Browser does not support XMLHTTP Request")
+                    return;
+                }
+                var url="/select_hod1/"+e;
+{#                alert(url);#}
+
+                xmlHttp.onreadystatechange = stateChange;
+                xmlHttp.open("GET", url, true);
+                xmlHttp.send(null);
+            }
+
+            function stateChange(){
+                if(xmlHttp.readyState==4 || xmlHttp.readyState=="complete"){
+                    document.getElementById("n1").innerHTML=xmlHttp.responseText
+
+                }
+            }
+</script>
+</head>
+
+<body>
+<form id="form1" name="form1" method="post" action="/select_hodpost">
+  <table class="table table-striped  " style="width: 100ch">
+    <tr>
+      <th scope="col">Department</th>
+      <th scope="col"><label for="select"></label>
+        <select name="select" id="select" onchange="adds(this.value)" class="form-control custom-select2">
+        <option selected>---select---</option>
+            {% for foo in value %}
+                <option value="{{ foo['dept_id'] }}">{{ foo['dept_name'] }}</option>
+            {% endfor %}
+
+      </select></th>
+    </tr>
+
+  </table>
+    <div id="n1"></div>
+</form>
+</body>
+</html>
+{% endblock %}

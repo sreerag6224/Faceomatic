@@ -1,0 +1,12 @@
+{#<option>---select---</option>#}
+{#{% for foo in value %}#}
+{#<option value="{{ foo['student_id'] }}">{{ foo['student_name'] }}</option>#}
+{#{% endfor %}#}
+
+{% for foo in value %}
+    <tr>
+{#    <td>{{ foo['student_id'] }}{{ foo['student_name'] }}</td>#}
+<td >{{ foo['student_id'] }}  {{ foo['student_name'] }}
+    <input type="hidden" name="name" value="{{ foo['student_id'] }}" ></td>
+        <td ><input type="text" name="mark" value="0" required class="form-control" style="width: 40%"></td>
+{% endfor %}

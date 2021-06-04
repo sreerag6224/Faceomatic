@@ -1,0 +1,33 @@
+{% extends 'Admin/Admin_Home.html' %}
+{% block body %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+<form id="form1" name="form1" method="post" action="">
+  <table class="table table-striped  " style="width: 100ch">
+    <tr>
+      <th scope="col"> </th>
+      <th scope="col">Parent Name</th>
+      <th scope="col">Student Name</th>
+      <th scope="col">Email</th>
+      <th scope="col">&nbsp;</th>
+    </tr>
+      {% for foo in value %}
+          <tr>
+              <td>{{ loop.index }}</td>
+              <th>{{ foo['parent_name'] }}<br/><img src="{{ foo['parent_photo'] }}" height="50" width="50"> </th>
+              <td>{{ foo['student_name'] }}</td>
+              <td>{{ foo['parent_email'] }}</td>
+              <td><a href="/update_parent/{{ foo['parent_id'] }}">edit</a><br></td>
+          </tr>
+      {% endfor %}
+  </table>
+</form>
+</body>
+</html>
+{% endblock %}

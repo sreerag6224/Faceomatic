@@ -1,0 +1,34 @@
+{% if value2 %}
+     <table class="table table-striped  " style="width: 100ch">
+      <tr align="center">
+        <th scope="col">Date</th>
+        <th scope="col">No.of.Days</th>
+        <th scope="col">status</th>
+      </tr>
+
+    {% for foo in value2 %}
+  <tr align="center" >
+        <td>{{ foo['l_date'] }}</td>
+        <td>{{ foo['l_no_of_days'] }}</td>
+
+     {% if foo['status']=='p' %}
+     <td>
+         <a href="/approve_staff_leave/{{ foo['leave_id'] }}"><input type="button" value="Approve" class="btn btn-outline-success"></a>
+         <a href="/reject_staff_leave/{{ foo['leave_id'] }}"><input type="button" value="Reject" class="btn btn-outline-danger"> </a><br>
+     </td>
+     {% elif foo['status']=='r' %}
+     <td>rejected</td>
+     {% else %}
+     <td>approved</td>
+
+        {% endif %}
+          </tr>
+    {% endfor %}
+
+
+    </table>
+    {% else %}<font color="red">
+no data....</font>
+
+
+{% endif %}

@@ -1,0 +1,60 @@
+{% extends 'Hod/Hod_home.html' %}
+{% block body %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+    <script type="text/javascript">
+var xmlHttp;
+            function adds(e){
+{#               alert(e);#}
+                if (typeof XMLHttpRequest != "undefined"){
+                xmlHttp= new XMLHttpRequest();
+                }
+                else if (window.ActiveXObject){
+                    xmlHttp= new ActiveXObject("Microsoft.XMLHTTP");
+                }
+                if (xmlHttp==null){
+                    alert("Browser does not support XMLHTTP Request")
+                    return;
+                }
+                var url="/hod_view_student1/"+e;
+{#                alert(url);#}
+
+                xmlHttp.onreadystatechange = stateChange;
+                xmlHttp.open("GET", url, true);
+                xmlHttp.send(null);
+            }
+
+            function stateChange(){
+                if(xmlHttp.readyState==4 || xmlHttp.readyState=="complete"){
+                    document.getElementById("n1").innerHTML=xmlHttp.responseText
+
+                }
+            }
+</script>
+</head>
+
+<body>
+<form id="form1" name="form1" method="post" action="">
+  <p>&nbsp;</p>
+  <p>&nbsp;</p>
+  <table class="table table-striped" style="width: 100ch">
+    <tr>
+      <td colspan="6">COURSE</td>
+      <td colspan="9"><label for="select"></label>
+        <select name="select" id="select" onchange="adds(this.value)" class="form-control" style="width: 40%">
+            <option selected>---select---</option>
+            {% for foo in value %}
+                <option value="{{ foo['course_id'] }}">{{ foo['course_name'] }}</option>
+            {% endfor %}
+
+      </select></td>
+    </tr>
+  </table>
+</form>
+<div id="n1"></div>
+</body>
+</html>
+{% endblock %}

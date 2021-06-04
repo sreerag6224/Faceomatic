@@ -1,0 +1,194 @@
+{% extends 'Admin/Admin_Home.html' %}
+{% block body %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+    <script type="text/javascript">
+var xmlHttp;
+            function adds(e){
+
+                if (typeof XMLHttpRequest != "undefined"){
+                xmlHttp= new XMLHttpRequest();
+                }
+                else if (window.ActiveXObject){
+                    xmlHttp= new ActiveXObject("Microsoft.XMLHTTP");
+                }
+                if (xmlHttp==null){
+                    alert("Browser does not support XMLHTTP Request")
+                    return;
+                }
+                var url="/sel_course/"+e;
+{#                alert(url);#}
+
+                xmlHttp.onreadystatechange = stateChange;
+                xmlHttp.open("GET", url, true);
+                xmlHttp.send(null);
+            }
+
+            function stateChange(){
+                if(xmlHttp.readyState==4 || xmlHttp.readyState=="complete"){
+                    document.getElementById("s").innerHTML=xmlHttp.responseText
+
+                }
+            }
+
+
+
+
+
+     function coursedid(e){
+
+                if (typeof XMLHttpRequest != "undefined"){
+                xmlHttp= new XMLHttpRequest();
+                }
+                else if (window.ActiveXObject){
+                    xmlHttp= new ActiveXObject("Microsoft.XMLHTTP");
+                }
+                if (xmlHttp==null){
+                    alert("Browser does not support XMLHTTP Request")
+                    return;
+                }
+                var url="/select_sem/"+e;
+{#                alert(url);#}
+
+                xmlHttp.onreadystatechange = stateChange1;
+                xmlHttp.open("GET", url, true);
+                xmlHttp.send(null);
+            }
+
+            function stateChange1(){
+                if(xmlHttp.readyState==4 || xmlHttp.readyState=="complete"){
+                    document.getElementById("sem").innerHTML=xmlHttp.responseText
+
+                }
+            }
+
+
+
+
+
+     function sems(e){
+
+                if (typeof XMLHttpRequest != "undefined"){
+                xmlHttp= new XMLHttpRequest();
+                }
+                else if (window.ActiveXObject){
+                    xmlHttp= new ActiveXObject("Microsoft.XMLHTTP");
+                }
+                if (xmlHttp==null){
+                    alert("Browser does not support XMLHTTP Request")
+                    return;
+                }
+                var url="/select_year/"+e;
+{#                alert(url);#}
+
+                xmlHttp.onreadystatechange = stateChange2;
+                xmlHttp.open("GET", url, true);
+                xmlHttp.send(null);
+            }
+
+            function stateChange2() {
+                if (xmlHttp.readyState == 4 || xmlHttp.readyState == "complete") {
+                    document.getElementById("y").innerHTML = xmlHttp.responseText
+
+                }
+            }
+
+
+             function year(e){
+
+                if (typeof XMLHttpRequest != "undefined"){
+                xmlHttp= new XMLHttpRequest();
+                }
+                else if (window.ActiveXObject){
+                    xmlHttp= new ActiveXObject("Microsoft.XMLHTTP");
+                }
+                if (xmlHttp==null){
+                    alert("Browser does not support XMLHTTP Request")
+                    return;
+                }
+                var url="/select_sub_leave/"+e;
+{#                alert(url);#}
+
+                xmlHttp.onreadystatechange = stateChange3;
+                xmlHttp.open("GET", url, true);
+                xmlHttp.send(null);
+            }
+
+            function stateChange3() {
+                if (xmlHttp.readyState == 4 || xmlHttp.readyState == "complete") {
+                    document.getElementById("op").innerHTML = xmlHttp.responseText
+
+                }
+            }
+
+
+
+{#            function view(e){#}
+{##}
+{#                if (typeof XMLHttpRequest != "undefined"){#}
+{#                xmlHttp= new XMLHttpRequest();#}
+{#                }#}
+{#                else if (window.ActiveXObject){#}
+{#                    xmlHttp= new ActiveXObject("Microsoft.XMLHTTP");#}
+{#                }#}
+{#                if (xmlHttp==null){#}
+{#                    alert("Browser does not support XMLHTTP Request")#}
+{#                    return;#}
+{#                }#}
+{#                var url="/select_sub_leave/"+e;#}
+{#                alert(url);#}
+{##}
+{#                xmlHttp.onreadystatechange = stateChange4;#}
+{#                xmlHttp.open("GET", url, true);#}
+{#                xmlHttp.send(null);#}
+{#            }#}
+{##}
+{#            function stateChange4() {#}
+{#                if (xmlHttp.readyState == 4 || xmlHttp.readyState == "complete") {#}
+{#                    document.getElementById("n2").innerHTML = xmlHttp.responseText#}
+{##}
+{#                }#}
+{#            }#}
+{##}
+
+</script>
+</head>
+
+<body>
+<form id="form1" name="form1" method="post" action="">
+  <table class="table table-striped  " style="width: 100ch">
+    <tr align="center">
+      <th scope="row">department</th>
+      <td align="left"><select name="select" id="select" onchange="adds(this.value)" class="form-control" style="width: 40%">
+          <option selected>---select---</option>
+          {% for foo in value %}
+          <option value="{{ foo['dept_id'] }}">{{ foo['dept_name'] }}</option>
+          {% endfor %}
+
+      </select></td>
+    </tr>
+  <tr>
+      <td>Course</td>
+      <td align="left"><select name="s" id="s" onchange="coursedid(this.value)" class="form-control" style="width: 40%">
+      </select></td>
+  </tr>
+<tr><td>Semester</td>
+<td><select id="sem" name="sem" onchange="sems(this.value)" class="form-control"style="width: 40%"></select></td></tr>
+  <tr><td>Year</td>
+      <td align="left"><select  name="y" id="y" onchange="year(this.value)" class="form-control" style="width: 40%"></select></td></tr>
+       </table>
+<table >
+    <tr><td>
+<div style="align-content: center;" align="center" id="op"></div>
+</td></tr>
+</table >
+
+
+
+</form>
+</body>
+</html>
+{% endblock %}

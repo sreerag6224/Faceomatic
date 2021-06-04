@@ -1,0 +1,29 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form id="form1" name="form1" method="post" action="">
+<table class="table table-striped  " style="width: 100ch">
+     <tr >
+      <th width="16%">Staff</th>
+      <td ><label for="select2"></label>
+        <select name="select2" id="select2" class="form-control custom-select2" style="width: 200px">
+                <option selected>---select---</option>
+             {% for foo in value %}
+                <option value="{{ foo['staff_id'] }}">{{ foo['s_name'] }}</option>
+            {% endfor %}
+      </select></td>
+    </tr>
+
+    <tr align="center">
+      <th colspan="2" scope="row"><input type="submit" name="button" id="button" value="Submit" class="btn btn-primary"/></th>
+    </tr>
+</table>
+</form>
+</body>
+</html>

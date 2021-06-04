@@ -1,0 +1,27 @@
+import java.awt.*;
+import java.applet.Applet;
+public class apl5 extends Applet
+{
+    TextField basic =new TextField();
+    TextField fifty=new TextField(50);
+    TextField hello=new TextField("Hello World");
+    TextField goodbye=new TextField("Good bye",5);
+    TextArea basictextarea=new TextArea(5,10);
+    TextArea javap=new TextArea("Java Programming",3,12);
+    TextField echo=new TextField(20);
+    public void init()
+    {
+       add(basic);
+       add(fifty);
+       add(hello);
+       add(goodbye);
+       add(basictextarea);
+       add(javap);
+       add(echo);
+       //echo.setEchoCharacter(" ");
+    }
+}
+/*
+<applet code="apl5.class" height=300 width=500>
+</applet>
+*/

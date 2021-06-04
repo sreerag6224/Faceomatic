@@ -1,0 +1,20 @@
+import java.awt.*;
+import java.applet.Applet;
+public class apl2 extends Applet
+{
+    Label  mill=new Label("Greetings from Mars");
+    Label setmethod=new Label();
+    Label col=new Label("green");
+    public void init()
+    {
+        add(mill);
+        add(setmethod);
+        add(col);
+        col.setBackground(Color.green);
+        setmethod.setText("text created using the setText() method");
+    }
+}
+/*
+<applet code="apl2.class" height=300 width=500>
+</applet>
+*/

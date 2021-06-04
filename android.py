@@ -14,7 +14,7 @@ student_ids = []
 app = Flask(__name__)
 
 path1="E:\\face\\static\\"
-path2="E:/face"
+path2="E:/Users/Sreer/Downloads/face"
 sub_alloc_ids=""
 cb=""
 _image_counter=""

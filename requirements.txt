@@ -26,4 +26,4 @@ pyttsx3==2.90
 requests==2.25.1
 urllib3==1.26.3
 Werkzeug==1.0.1
-pypwin
+pypwin32
